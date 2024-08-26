@@ -1,74 +1,67 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+/*  your css code here. If applicable */
+.container{
+	display:flex;
+	justify-content:center;
+	align-items:center;
 }
 
-.progress-container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    width: 60%;
-    margin-bottom: 20px;
+.progress-bar{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	gap:2em;
 }
 
-.circle {
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50%;
-    border: 3px solid lightgrey;
-    color: lightgrey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    z-index: 1;
+.circles{
+	display:flex;
+	/* gap:2em; */
 }
 
-.circle.active {
-    border-color: rgb(52,152,219);
-    color: rgb(52,152,219);
+.circle{
+	width:25px;
+	height:25px;
+	border:3px solid lightgray;
+	border-radius:50%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:gray;
 }
 
-.progress {
-    position: absolute;
-    top: calc(50% - 2px); /* Adjusted top position */
-    left: 0;
-    height: 4px;
-    background-color: lightgray;
-    width: 100%;
-    z-index: 0;
-    transform: translateY(-50%);
+.active{
+	border-color:deepskyblue;
 }
 
-.progress-active {
-    background-color: rgb(52,152,219);
-    width: 0;
-    height: 100%; /* Ensure the height is 100% of the progress element */
-    transition: width 0.3s;
+.line-container{
+	display:flex;
+	justify-content:center;
+	align-items:center;
 }
 
-.buttons {
-    display: flex;
-    gap: 10px;
+.line {
+  height: 4px;
+  background-color: lightgray;
+  width: 50px;
 }
 
-button {
-    padding: 10px 30px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: rgb(52,152,219);
-    color: white;
-    border: none;
-    border-radius: 5px;
+.line-active{
+	background-color: deepskyblue;
 }
 
-button:disabled {
-    background-color: white;
-    cursor: not-allowed;
+.buttons{
+	display:flex;
+	gap:1em;
+}
+
+.button{
+	color:white;
+	background-color:deepskyblue;
+	border:none;
+	padding:0.5em 2em;
+	border-radius:0.5em;
+}
+
+.button:disabled{
+	background-color:red;
+	cursor:not-allowed;
 }

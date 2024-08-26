@@ -1,30 +1,50 @@
-const circles = document.querySelectorAll('.circle');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
-let currentStep = 0;
+//your JS code here. If required.
+//your JS code here. If required.
+const prevBtn=document.getElementById('prev')
+const nextBtn=document.getElementById('next')
 
-function updateProgress() {
-    circles.forEach((circle, index) => {
-        if (index < currentStep) {
-            circle.classList.add('active');
-        } else {
-            circle.classList.remove('active');
-        }
-    });
+let currentCircleCount=1
 
-    prevButton.disabled = currentStep === 0;
-    nextButton.disabled = currentStep === circles.length - 1;
-}
+nextBtn.addEventListener('click',()=>{
+	if(currentCircleCount+1<=5){
+		const currentCircle=document.getElementById(`circle-${currentCircleCount+1}`)
+		currentCircle.classList.add('active')
+	
+		const currentLine=document.getElementById(`line-${currentCircleCount+1}`)
+		currentLine.classList.add('line-active')
+		
+		++currentCircleCount
+	}
 
-nextButton.addEventListener('click', () => {
-    currentStep++;
-    updateProgress();
-});
+	if(currentCircleCount==5){
+		nextBtn.setAttribute("disabled","")
+	}else{
+		nextBtn.removeAttribute("disabled")
+	}
 
-prevButton.addEventListener('click', () => {
-    currentStep--;
-    updateProgress();
-});
+	if(currentCircleCount>1){
+		prevBtn.removeAttribute("disabled")
+	}
+})
 
-// Initial state
-updateProgress();
+prevBtn.addEventListener('click',()=>{
+	if(currentCircleCount>1){
+		const currentCircle=document.getElementById(`circle-${currentCircleCount}`)
+		currentCircle.classList.remove('active')
+
+		const currentLine=document.getElementById(`line-${currentCircleCount}`)
+		currentLine.classList.remove('line-active')
+		
+		--currentCircleCount
+	}
+
+	if(currentCircleCount==1){
+		prevBtn.setAttribute("disabled","")
+	}else{
+		prevBtn.removeAttribute("disabled")
+	}
+
+	if(currentCircleCount<5){
+		nextBtn.removeAttribute("disabled")
+	}
+})
